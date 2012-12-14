@@ -1,4 +1,5 @@
 require File.join(File.expand_path(File.dirname(__FILE__)), "command")
+require "timeout"
 
 module Imageproxy
   class Convert < Imageproxy::Command
@@ -34,7 +35,7 @@ module Imageproxy
     end
 
     def convert_options
-      convert_options = []
+      convert_options = ["-strip"]
       convert_options << "-resize #{resize_thumbnail_options(options.resize)}" if options.resize
       convert_options << "-thumbnail #{resize_thumbnail_options(options.thumbnail)}" if options.thumbnail
       convert_options << "-flop" if options.flip == "horizontal"

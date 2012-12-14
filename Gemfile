@@ -3,6 +3,7 @@ source :rubygems
 gem "rack"
 gem "rake"
 gem "mime-types"
+gem "puma"
 
 group :development, :test do
   gem "heroku"
